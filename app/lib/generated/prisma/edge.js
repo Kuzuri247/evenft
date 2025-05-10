@@ -201,7 +201,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://eventDB_owner:npg_mOdW0lh3tyQp@ep-steep-snowflake-a19ucv5y-pooler.ap-southeast-1.aws.neon.tech/eventDB?sslmode=require"
+        "value": "postgresql://eventDB_owner:npg_qkhLia0Cn6Ns@ep-crimson-bird-a1iu025n-pooler.ap-southeast-1.aws.neon.tech/eventDB?sslmode=require"
       }
     }
   },
