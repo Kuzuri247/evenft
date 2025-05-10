@@ -5,9 +5,16 @@ import { prisma } from '@/lib/prisma';
  * API endpoint to fetch NFT metadata by mint address
  * This is used by the profile page to display NFT details
  */
+// Define the proper context parameter type
+type MintContext = {
+  params: {
+    mintAddress: string;
+  }
+};
+
 export async function GET(
   request: NextRequest,
-  context: { params: { mintAddress: string } }
+  context: MintContext
 ) {
   // In Next.js 14+ we need to await params before using them
   const params = await context.params;

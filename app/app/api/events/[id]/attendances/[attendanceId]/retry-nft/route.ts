@@ -10,9 +10,17 @@ import * as anchor from '@coral-xyz/anchor';
 import { createAttendanceNFT } from '@/lib/solana/nftHelpers';
 import { getMinterKeypair } from '@/lib/solana/walletConfig';
 
+// Define the proper context parameter type
+type RetryNFTContext = {
+  params: {
+    id: string;
+    attendanceId: string;
+  }
+};
+
 export async function POST(
   request: NextRequest,
-  context: { params: { id: string, attendanceId: string } }
+  context: RetryNFTContext
 ) {
   // In Next.js 14+ we need to await params before using them
   const params = await context.params;

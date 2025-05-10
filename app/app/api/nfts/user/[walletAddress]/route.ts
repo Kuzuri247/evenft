@@ -5,9 +5,16 @@ import { prisma } from '@/lib/prisma';
  * API endpoint to fetch all NFTs minted to a specific wallet address
  * This is used by the profile page to display the user's NFT collection
  */
+// Define the proper context parameter type
+type WalletContext = {
+  params: {
+    walletAddress: string;
+  }
+};
+
 export async function GET(
   request: NextRequest,
-  context: { params: { walletAddress: string } }
+  context: WalletContext
 ) {
   // In Next.js 14+ we need to await params before using them
   const params = await context.params;

@@ -10,10 +10,17 @@ import * as anchor from '@coral-xyz/anchor';
 import { createAttendanceNFT } from '@/lib/solana/nftHelpers';
 import { getMinterKeypair } from '@/lib/solana/walletConfig';
 
+// Define the proper context parameter type
+type AttendancesContext = {
+  params: {
+    id: string;
+  }
+};
+
 // Fetch all attendances for an event
 export async function GET(
   request: NextRequest,
-  context: { params: { id: string } }
+  context: AttendancesContext
 ) {
   // In Next.js 14+ we need to await params before using them
   const params = await context.params;
@@ -46,7 +53,7 @@ export async function GET(
 
 export async function POST(
   request: NextRequest,
-  context: { params: { id: string } }
+  context: AttendancesContext
 ) {
   // In Next.js 14+ we need to await params before using them
   const params = await context.params;

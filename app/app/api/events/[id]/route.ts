@@ -1,9 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
+// Define the proper context parameter type
+type EventContext = {
+  params: {
+    id: string;
+  }
+};
+
 export async function GET(
   request: NextRequest,
-  context: { params: { id: string } }
+  context: EventContext
 ) {
   // In Next.js 14+ we need to await params before using them
   const params = await context.params;
