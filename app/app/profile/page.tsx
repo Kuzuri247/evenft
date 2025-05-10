@@ -94,11 +94,11 @@ export default function ProfilePage() {
   // If wallet is not connected
   if (!publicKey) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
+      <div className="min-h-screen bg-background py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-900 mb-6">Your Profile</h1>
-            <p className="text-gray-600 mb-6">Connect your wallet to view your profile</p>
+            <h1 className="text-3xl font-bold text-foreground mb-6">Your Profile</h1>
+            <p className="text-muted-foreground mb-6">Connect your wallet to view your profile</p>
             <WalletConnectButton />
           </div>
         </div>
@@ -107,36 +107,36 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-background py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* User Profile Section */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <div className="bg-card rounded-lg shadow-sm p-6 mb-8 border border-border">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">
+              <h1 className="text-2xl font-bold text-foreground">
                 {loadingProfile ? 'Loading...' : userProfile?.name || 'Anonymous User'}
               </h1>
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-sm text-muted-foreground mt-1">
                 Wallet: {publicKey.toString().slice(0, 6)}...{publicKey.toString().slice(-4)}
               </p>
               {userProfile?.email && (
-                <p className="text-sm text-gray-500 mt-1">
+                <p className="text-sm text-muted-foreground mt-1">
                   Email: {userProfile.email}
                 </p>
               )}
             </div>
             <div className="flex space-x-4">
               <div className="text-center">
-                <p className="text-2xl font-bold text-indigo-600">
+                <p className="text-2xl font-bold text-indigo-400">
                   {loadingProfile ? '-' : userProfile?.eventCount || 0}
                 </p>
-                <p className="text-xs text-gray-500">Events</p>
+                <p className="text-xs text-muted-foreground">Events</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-indigo-600">
+                <p className="text-2xl font-bold text-indigo-400">
                   {nfts.length}
                 </p>
-                <p className="text-xs text-gray-500">NFTs</p>
+                <p className="text-xs text-muted-foreground">NFTs</p>
               </div>
             </div>
           </div>
@@ -144,13 +144,13 @@ export default function ProfilePage() {
           <div className="mt-4 flex space-x-3">
             <Link 
               href="/dashboard"
-              className="px-3 py-1.5 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+              className="px-3 py-1.5 border border-border text-sm font-medium rounded-md text-foreground bg-background hover:bg-card"
             >
               Dashboard
             </Link>
             <Link 
               href="/events"
-              className="px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              className="px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600"
             >
               Browse Events
             </Link>
@@ -159,13 +159,13 @@ export default function ProfilePage() {
 
         {/* NFT Collection Section */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Your NFT Collection</h1>
+          <h1 className="text-3xl font-bold text-foreground">Your NFT Collection</h1>
           
           <button 
             onClick={loadNFTs}
             disabled={loading}
             className={`mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white ${
-              loading ? 'bg-indigo-400' : 'bg-indigo-600 hover:bg-indigo-700'
+              loading ? 'bg-indigo-500' : 'bg-indigo-700 hover:bg-indigo-600'
             }`}
           >
             {loading ? (
@@ -181,93 +181,76 @@ export default function ProfilePage() {
 
         {loading ? (
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Loading your NFTs...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-400 mx-auto"></div>
+            <p className="mt-4 text-muted-foreground">Loading your NFTs...</p>
           </div>
         ) : error ? (
-          <div className="text-center py-12 bg-white rounded-lg shadow-sm">
-            <h2 className="text-xl font-semibold text-red-600 mb-2">Error</h2>
-            <p className="text-gray-600 mb-6">{error}</p>
+          <div className="text-center py-12 bg-card rounded-lg shadow-sm border border-border">
+            <h2 className="text-xl font-semibold text-red-400 mb-2">Error</h2>
+            <p className="text-muted-foreground mb-6">{error}</p>
             <button 
               onClick={loadNFTs}
-              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600"
             >
               Try Again
             </button>
           </div>
         ) : nfts.length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-lg shadow-sm">
-            <h2 className="text-xl font-semibold text-gray-700 mb-2">No NFTs found</h2>
-            <p className="text-gray-600 mb-6">You don't have any NFTs in your wallet yet.</p>
+          <div className="text-center py-12 bg-card rounded-lg shadow-sm border border-border">
+            <h2 className="text-xl font-semibold text-foreground mb-2">No NFTs found</h2>
+            <p className="text-muted-foreground mb-6">
+              Attend events to collect NFT proof of attendance
+            </p>
             <Link 
               href="/events"
-              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600"
             >
-              Browse Events to Earn NFTs
+              Browse Events
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {nfts.map((nft) => {
               const preview = getNFTPreview(nft);
-              
               return (
-                <div key={nft.mint} className="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div className="relative h-48 w-full bg-gray-100">
+                <div key={nft.mint} className="bg-card rounded-lg shadow-sm overflow-hidden border border-border hover:border-indigo-600/50 transition-colors group">
+                  <div className="relative h-48 w-full bg-background/50">
                     {preview.image ? (
-                      <img
-                        src={preview.image}
+                      <Image 
+                        src={preview.image} 
                         alt={preview.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          // If image fails to load, set a placeholder
-                          (e.target as HTMLImageElement).src = '/placeholder-nft.png';
-                        }}
+                        fill
+                        className="object-contain p-2"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gray-200">
-                        <span className="text-gray-400">No Image</span>
+                      <div className="flex items-center justify-center h-full">
+                        <span className="text-muted-foreground">No image</span>
                       </div>
                     )}
                   </div>
-                  
                   <div className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">{preview.name}</h3>
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{preview.description}</p>
-                    
-                    <div className="flex items-start space-x-2 text-xs text-gray-500">
-                      <svg className="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                      </svg>
-                      <span className="leading-tight break-all">
-                        {`${nft.mint.slice(0, 10)}...${nft.mint.slice(-4)}`}
-                      </span>
-                    </div>
-                    
-                    <div className="mt-3">
+                    <h3 className="text-lg font-semibold text-foreground mb-1 truncate" title={preview.name}>
+                      {preview.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2 h-10" title={preview.description}>
+                      {preview.description || "No description"}
+                    </p>
+                    <div className="flex items-center justify-between mt-3">
+                      <p className="text-xs text-muted-foreground truncate">
+                        Mint: {nft.mint.slice(0, 6)}...{nft.mint.slice(-4)}
+                      </p>
                       <a 
                         href={`https://explorer.solana.com/address/${nft.mint}?cluster=devnet`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs text-indigo-600 hover:text-indigo-800"
+                        className="group-hover:text-indigo-400 text-indigo-600/80 text-xs flex items-center transition-colors"
                       >
-                        View on Solana Explorer →
+                        <span>View on Explorer</span>
+                        <svg className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
                       </a>
                     </div>
-
-                    {nft.metadata?.attributes && nft.metadata.attributes.length > 0 && (
-                      <div className="mt-3 pt-3 border-t border-gray-100">
-                        <h4 className="text-xs font-medium text-gray-500 mb-2">Attributes</h4>
-                        <div className="grid grid-cols-2 gap-2">
-                          {nft.metadata.attributes.map((attr, index) => (
-                            <div key={index} className="bg-gray-50 px-2 py-1 rounded text-xs">
-                              <span className="font-medium text-gray-600">{attr.trait_type}:</span>{' '}
-                              <span className="text-gray-500">{attr.value}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               );

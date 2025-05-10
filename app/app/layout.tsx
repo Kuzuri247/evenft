@@ -26,13 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         <SolanaProvider>
           <Navigation />
-          <main>{children}</main>
+          <main className="pt-24">{children}</main>
         </SolanaProvider>
       </body>
     </html>
