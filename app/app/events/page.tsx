@@ -48,7 +48,7 @@ export default function EventsPage() {
               <div className="absolute -inset-1 bg-indigo-600 rounded-full opacity-30 blur-xl animate-pulse"></div>
               <div className="relative animate-spin rounded-full h-16 w-16 border-4 border-t-indigo-400 border-l-indigo-400 border-r-transparent border-b-transparent"></div>
             </div>
-            <p className="mt-8 text-lg text-muted-foreground">Discovering events...</p>
+            <p className="mt-8 text-lg text-muted-foreground font-montserrat">Discovering events...</p>
           </div>
         </div>
       </div>
@@ -69,14 +69,14 @@ export default function EventsPage() {
         <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 inline-block">Events & Experiences</h1>
-          <p className="mt-4 text-xl text-indigo-100">Discover blockchain-verified events and collect your proof of attendance NFTs</p>
+          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 inline-block font-calsans">Events &amp; Experiences</h1>
+          <p className="mt-4 text-xl text-indigo-100 font-montserrat">Discover blockchain-verified events and collect your proof of attendance NFTs</p>
           
           {/* Event filtering tabs */}
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <button 
               onClick={() => setActiveFilter('all')}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 font-montserrat ${
                 activeFilter === 'all' 
                   ? 'bg-indigo-600/80 backdrop-blur-sm text-white shadow-lg shadow-indigo-600/20' 
                   : 'bg-white/5 backdrop-blur-sm text-indigo-200 hover:bg-white/10'
@@ -86,7 +86,7 @@ export default function EventsPage() {
             </button>
             <button 
               onClick={() => setActiveFilter('upcoming')}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 font-montserrat ${
                 activeFilter === 'upcoming' 
                   ? 'bg-indigo-600/80 backdrop-blur-sm text-white shadow-lg shadow-indigo-600/20' 
                   : 'bg-white/5 backdrop-blur-sm text-indigo-200 hover:bg-white/10'
@@ -96,7 +96,7 @@ export default function EventsPage() {
             </button>
             <button 
               onClick={() => setActiveFilter('trending')}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 font-montserrat ${
                 activeFilter === 'trending' 
                   ? 'bg-indigo-600/80 backdrop-blur-sm text-white shadow-lg shadow-indigo-600/20' 
                   : 'bg-white/5 backdrop-blur-sm text-indigo-200 hover:bg-white/10'
@@ -107,7 +107,7 @@ export default function EventsPage() {
             {publicKey && (
               <button 
                 onClick={() => setActiveFilter('your')}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 font-montserrat ${
                   activeFilter === 'your' 
                     ? 'bg-indigo-600/80 backdrop-blur-sm text-white shadow-lg shadow-indigo-600/20' 
                     : 'bg-white/5 backdrop-blur-sm text-indigo-200 hover:bg-white/10'
@@ -128,11 +128,11 @@ export default function EventsPage() {
             <svg className="h-24 w-24 text-indigo-400/40 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1M15 7l3 3m0 0l3-3m-3 3V4" />
             </svg>
-            <p className="text-xl text-foreground font-medium mb-3">No events available yet</p>
-            <p className="text-muted-foreground mb-8">Be the first to create an exciting blockchain-verified event</p>
+            <p className="text-xl text-foreground font-medium mb-3 font-calsans">No events available yet</p>
+            <p className="text-muted-foreground mb-8 font-montserrat">Be the first to create an exciting blockchain-verified event</p>
             <Link 
               href="/events/create" 
-              className="group relative inline-flex justify-center items-center px-8 py-4 text-base font-medium rounded-lg overflow-hidden transition-all duration-300"
+              className="group relative inline-flex justify-center items-center px-8 py-4 text-base font-medium rounded-lg overflow-hidden transition-all duration-300 font-montserrat"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-indigo-700 opacity-90 group-hover:opacity-100 transition-opacity"></span>
               <span className="absolute inset-0 border border-indigo-400 rounded-lg opacity-50 group-hover:opacity-100 transition-opacity"></span>
@@ -164,36 +164,36 @@ export default function EventsPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute top-4 right-4 z-20">
-                    <span className="px-3 py-1 text-xs rounded-full bg-indigo-600/80 backdrop-blur-sm text-white">
+                    <span className="px-3 py-1 text-xs rounded-full bg-indigo-600/80 backdrop-blur-sm text-white font-montserrat">
                       {new Date(event.date) > new Date() ? 'Upcoming' : 'Past'}
                     </span>
                   </div>
                 </div>
                 
                 <div className="p-6 relative z-10">
-                  <h2 className="text-xl font-semibold text-foreground mb-2 group-hover:text-indigo-300 transition-colors">{event.title}</h2>
-                  <p className="text-muted-foreground mb-6 line-clamp-2">{event.description}</p>
+                  <h2 className="text-xl font-semibold text-foreground mb-2 group-hover:text-indigo-300 transition-colors font-calsans">{event.title}</h2>
+                  <p className="text-muted-foreground mb-6 line-clamp-2 font-montserrat">{event.description}</p>
                   
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center text-muted-foreground group-hover:text-indigo-300/80 transition-colors">
                       <svg className="h-5 w-5 mr-3 text-indigo-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      <span className="text-sm">{format(new Date(event.date), 'PPP p')}</span>
+                      <span className="text-sm font-montserrat">{format(new Date(event.date), 'PPP p')}</span>
                     </div>
                     <div className="flex items-center text-muted-foreground group-hover:text-indigo-300/80 transition-colors">
                       <svg className="h-5 w-5 mr-3 text-indigo-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
-                      <span className="text-sm">{event.location}</span>
+                      <span className="text-sm font-montserrat">{event.location}</span>
                     </div>
                     <div className="flex items-center text-muted-foreground group-hover:text-indigo-300/80 transition-colors">
                       <svg className="h-5 w-5 mr-3 text-indigo-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
                       <div className="flex items-center w-full">
-                        <span className="text-sm">{event.currentAttendees} / {event.maxAttendees} attendees</span>
+                        <span className="text-sm font-montserrat">{event.currentAttendees} / {event.maxAttendees} attendees</span>
                         <div className="ml-auto w-24 h-1.5 bg-indigo-950 rounded-full overflow-hidden">
                           <div 
                             className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
@@ -206,7 +206,7 @@ export default function EventsPage() {
 
                   <Link
                     href={`/events/${event.id}`}
-                    className="group/btn relative inline-flex w-full justify-center items-center px-4 py-2.5 text-sm font-medium rounded-lg overflow-hidden transition-all duration-300"
+                    className="group/btn relative inline-flex w-full justify-center items-center px-4 py-2.5 text-sm font-medium rounded-lg overflow-hidden transition-all duration-300 font-montserrat"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-indigo-700 opacity-90 group-hover/btn:opacity-100 transition-opacity"></span>
                     <span className="absolute inset-0 border border-indigo-400/30 rounded-lg"></span>
@@ -233,7 +233,7 @@ export default function EventsPage() {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
-              <span className="absolute right-full mr-4 bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              <span className="absolute right-full mr-4 bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-montserrat">
                 Create Event
               </span>
             </Link>

@@ -198,8 +198,8 @@ export default function CreateEventPage() {
         <div className="absolute bottom-1/3 left-20 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 inline-block">Create Your Event</h1>
-          <p className="mt-4 text-lg text-indigo-100 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 inline-block font-calsans">Create Your Event</h1>
+          <p className="mt-4 text-lg text-indigo-100 max-w-3xl mx-auto font-montserrat">
             Build your blockchain-verified event and mint exclusive NFTs for your attendees
           </p>
         </div>
@@ -212,12 +212,12 @@ export default function CreateEventPage() {
             <svg className="h-24 w-24 text-indigo-400/40 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            <h2 className="text-2xl font-semibold text-foreground mb-4">Connect Your Wallet</h2>
-            <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+            <h2 className="text-2xl font-semibold text-foreground mb-4 font-calsans">Connect Your Wallet</h2>
+            <p className="text-muted-foreground mb-8 max-w-md mx-auto font-montserrat">
               To create and manage blockchain events, connect your Solana wallet first
             </p>
             <div className="inline-block">
-          <WalletConnectButton />
+              <WalletConnectButton />
             </div>
         </div>
       ) : (
@@ -227,7 +227,7 @@ export default function CreateEventPage() {
               <div className="flex items-center">
                 <button 
                   onClick={() => setActiveSection(1)} 
-                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 font-montserrat ${
                     activeSection >= 1 
                       ? 'bg-indigo-600 text-white' 
                       : 'bg-indigo-900/30 text-indigo-300'
@@ -242,7 +242,7 @@ export default function CreateEventPage() {
                 }`}></div>
                 <button 
                   onClick={() => formData.title && formData.date ? setActiveSection(2) : null} 
-                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 font-montserrat ${
                     activeSection >= 2 
                       ? 'bg-indigo-600 text-white' 
                       : 'bg-indigo-900/30 text-indigo-300'
@@ -266,61 +266,78 @@ export default function CreateEventPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                       </div>
-                      <h2 className="text-2xl font-semibold text-foreground">Event Details</h2>
+                      <h2 className="text-2xl font-semibold text-foreground font-calsans">Event Details</h2>
                     </div>
             
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-6">
-              <div>
-                          <label htmlFor="title" className="block text-sm font-medium mb-2 text-foreground">
-                  Event Title*
-                </label>
-                <input
-                  type="text"
-                  id="title"
-                  name="title"
-                  value={formData.title}
-                  onChange={handleChange}
-                  required
-                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                            placeholder="Give your event a catchy title"
-                />
-              </div>
-              
-              <div>
-                          <label htmlFor="description" className="block text-sm font-medium mb-2 text-foreground">
-                            Description*
-                </label>
-                <textarea
-                  id="description"
-                  name="description"
-                  value={formData.description}
-                  onChange={handleChange}
+                        <div>
+                          <label htmlFor="title" className="block text-sm font-medium mb-2 text-foreground font-montserrat">
+                            Event Title*
+                          </label>
+                          <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            value={formData.title}
+                            onChange={handleChange}
                             required
-                  rows={4}
-                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all font-montserrat"
+                            placeholder="Give your event a catchy title"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="description" className="block text-sm font-medium mb-2 text-foreground font-montserrat">
+                            Description*
+                          </label>
+                          <textarea
+                            id="description"
+                            name="description"
+                            value={formData.description}
+                            onChange={handleChange}
+                            required
+                            rows={4}
+                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all font-montserrat"
                             placeholder="Describe what your event is about"
                           ></textarea>
-              </div>
-              
+                        </div>
+                        
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                            <label htmlFor="date" className="block text-sm font-medium mb-2 text-foreground">
-                  Date and Time*
-                </label>
-                <input
-                  type="datetime-local"
-                  id="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  required
-                              className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                />
-              </div>
-              
-              <div>
-                            <label htmlFor="maxAttendees" className="block text-sm font-medium mb-2 text-foreground">
+                          <div>
+                            <label htmlFor="date" className="block text-sm font-medium mb-2 text-foreground font-montserrat">
+                              Date and Time*
+                            </label>
+                            <div className="relative">
+                              <input
+                                type="datetime-local"
+                                id="date"
+                                name="date"
+                                value={formData.date}
+                                onChange={handleChange}
+                                required
+                                className="w-full px-4 py-3 pl-11 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all font-montserrat appearance-none"
+                              />
+                              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                <svg className="h-5 w-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                              </div>
+                              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                <div className="h-6 w-6 rounded-full bg-indigo-500/10 flex items-center justify-center">
+                                  <svg className="h-3.5 w-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                            <p className="mt-1.5 text-xs text-indigo-300/70 font-montserrat">
+                              Select the exact date and time of your event
+                            </p>
+                          </div>
+                          
+                          <div>
+                            <label htmlFor="maxAttendees" className="block text-sm font-medium mb-2 text-foreground font-montserrat">
                               Max Attendees*
                             </label>
                             <input
@@ -331,33 +348,33 @@ export default function CreateEventPage() {
                               onChange={handleChange}
                               required
                               min="1"
-                              className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                              className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all font-montserrat appearance-none"
                             />
                           </div>
                         </div>
                         
                         <div>
-                          <label htmlFor="location" className="block text-sm font-medium mb-2 text-foreground">
+                          <label htmlFor="location" className="block text-sm font-medium mb-2 text-foreground font-montserrat">
                             Location*
-                </label>
-                <input
-                  type="text"
-                  id="location"
-                  name="location"
-                  value={formData.location}
-                  onChange={handleChange}
+                          </label>
+                          <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            value={formData.location}
+                            onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all font-montserrat"
                             placeholder="Physical location or 'Virtual'"
-                />
+                          />
                         </div>
-              </div>
-              
+                      </div>
+                      
                       <div className="space-y-6">
-              <div>
-                          <label htmlFor="event-image" className="block text-sm font-medium mb-2 text-foreground">
+                        <div>
+                          <label htmlFor="event-image" className="block text-sm font-medium mb-2 text-foreground font-montserrat">
                             Event Image*
-                </label>
+                          </label>
                           <div className="relative border-2 border-dashed border-indigo-900/20 rounded-lg p-6 bg-background/40 transition-all hover:border-indigo-500/40 flex flex-col items-center justify-center h-64">
                             {eventImagePreview ? (
                               <div className="relative w-full h-full">
@@ -385,20 +402,20 @@ export default function CreateEventPage() {
                                 <svg className="h-12 w-12 text-indigo-400/50 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                <p className="text-sm text-indigo-300 mb-2">Drag and drop or click to upload</p>
-                                <p className="text-xs text-indigo-300/70">PNG, JPG or GIF (max 5MB)</p>
+                                <p className="text-sm text-indigo-300 mb-2 font-montserrat">Drag and drop or click to upload</p>
+                                <p className="text-xs text-indigo-300/70 font-montserrat">PNG, JPG or GIF (max 5MB)</p>
                               </>
                             )}
-                <input
-                  type="file"
+                            <input
+                              type="file"
                               id="event-image"
-                  accept="image/*"
-                  onChange={handleEventImageChange}
+                              accept="image/*"
+                              onChange={handleEventImageChange}
                               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                               required
                             />
                           </div>
-                          <p className="mt-2 text-xs text-indigo-300/70">
+                          <p className="mt-2 text-xs text-indigo-300/70 font-montserrat">
                             Image will be uploaded to IPFS via Lighthouse
                           </p>
                         </div>
@@ -415,7 +432,7 @@ export default function CreateEventPage() {
                             alert('Please fill in all required fields and upload an event image.');
                           }
                         }}
-                        className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg overflow-hidden transition-all duration-300"
+                        className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg overflow-hidden transition-all duration-300 font-montserrat"
                       >
                         <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-indigo-700 opacity-90 group-hover:opacity-100 transition-opacity"></span>
                         <span className="absolute inset-0 border border-indigo-400 rounded-lg opacity-50 group-hover:opacity-100 transition-opacity"></span>
@@ -442,57 +459,57 @@ export default function CreateEventPage() {
                         <svg className="h-5 w-5 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-            </div>
-                      <h2 className="text-2xl font-semibold text-foreground">NFT Details</h2>
-          </div>
-          
-                    <p className="text-sm text-indigo-300/80 mb-6 ml-13">
+                      </div>
+                      <h2 className="text-2xl font-semibold text-foreground font-calsans">NFT Details</h2>
+                    </div>
+                    
+                    <p className="text-sm text-indigo-300/80 mb-6 ml-13 font-montserrat">
                       Design the NFT that will be issued to verified attendees as proof of attendance
                     </p>
             
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-6">
-              <div>
-                          <label htmlFor="nftName" className="block text-sm font-medium mb-2 text-foreground">
-                  NFT Name*
-                </label>
-                <input
-                  type="text"
-                  id="nftName"
-                  name="nftName"
-                  value={formData.nftName}
-                  onChange={handleChange}
-                  required
-                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                        <div>
+                          <label htmlFor="nftName" className="block text-sm font-medium mb-2 text-foreground font-montserrat">
+                            NFT Name*
+                          </label>
+                          <input
+                            type="text"
+                            id="nftName"
+                            name="nftName"
+                            value={formData.nftName}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all font-montserrat"
                             placeholder="Name for the NFT"
-                />
-              </div>
-              
-              <div>
-                          <label htmlFor="nftSymbol" className="block text-sm font-medium mb-2 text-foreground">
-                  NFT Symbol*
-                </label>
-                <input
-                  type="text"
-                  id="nftSymbol"
-                  name="nftSymbol"
-                  value={formData.nftSymbol}
-                  onChange={handleChange}
-                  required
-                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                            placeholder="Symbol for the NFT (e.g. EVENT)"
-                />
-                          <p className="mt-2 text-xs text-indigo-300/70">
-                            Short identifier for your token (typically 3-5 characters)
-                </p>
+                          />
                         </div>
-              </div>
-              
+                        
+                        <div>
+                          <label htmlFor="nftSymbol" className="block text-sm font-medium mb-2 text-foreground font-montserrat">
+                            NFT Symbol*
+                          </label>
+                          <input
+                            type="text"
+                            id="nftSymbol"
+                            name="nftSymbol"
+                            value={formData.nftSymbol}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 border border-indigo-900/20 rounded-lg bg-background/60 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all font-montserrat"
+                            placeholder="Symbol for the NFT (e.g. EVENT)"
+                          />
+                          <p className="mt-2 text-xs text-indigo-300/70 font-montserrat">
+                            Short identifier for your token (typically 3-5 characters)
+                          </p>
+                        </div>
+                      </div>
+                      
                       <div className="space-y-6">
-              <div>
-                          <label htmlFor="nft-image" className="block text-sm font-medium mb-2 text-foreground">
+                        <div>
+                          <label htmlFor="nft-image" className="block text-sm font-medium mb-2 text-foreground font-montserrat">
                             NFT Image*
-                </label>
+                          </label>
                           <div className="relative border-2 border-dashed border-indigo-900/20 rounded-lg p-6 bg-background/40 transition-all hover:border-indigo-500/40 flex flex-col items-center justify-center h-64">
                             {nftImagePreview ? (
                               <div className="relative w-full h-full">
@@ -520,31 +537,31 @@ export default function CreateEventPage() {
                                 <svg className="h-12 w-12 text-indigo-400/50 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
-                                <p className="text-sm text-indigo-300 mb-2">Upload NFT artwork</p>
-                                <p className="text-xs text-indigo-300/70">PNG, JPG, GIF or SVG (max 5MB)</p>
+                                <p className="text-sm text-indigo-300 mb-2 font-montserrat">Upload NFT artwork</p>
+                                <p className="text-xs text-indigo-300/70 font-montserrat">PNG, JPG, GIF or SVG (max 5MB)</p>
                               </>
                             )}
-                <input
-                  type="file"
+                            <input
+                              type="file"
                               id="nft-image"
-                  accept="image/*"
-                  onChange={handleNftImageChange}
+                              accept="image/*"
+                              onChange={handleNftImageChange}
                               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                               required
-                />
-                  </div>
-                          <p className="mt-2 text-xs text-indigo-300/70">
-                  This image will be used for the NFT that attendees receive
-                </p>
-              </div>
-            </div>
-          </div>
-          
+                            />
+                          </div>
+                          <p className="mt-2 text-xs text-indigo-300/70 font-montserrat">
+                            This image will be used for the NFT that attendees receive
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
                     <div className="flex justify-between mt-8">
                       <button
                         type="button"
                         onClick={() => setActiveSection(1)}
-                        className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg overflow-hidden transition-all duration-300"
+                        className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg overflow-hidden transition-all duration-300 font-montserrat"
                       >
                         <span className="absolute inset-0 bg-background/40 opacity-90 group-hover:opacity-100 transition-opacity"></span>
                         <span className="absolute inset-0 border border-indigo-400/30 rounded-lg opacity-50 group-hover:opacity-100 transition-opacity"></span>
@@ -556,10 +573,10 @@ export default function CreateEventPage() {
                         </span>
                       </button>
                       
-            <button
-              type="submit"
+                      <button
+                        type="submit"
                         disabled={isLoading}
-                        className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg overflow-hidden transition-all duration-300"
+                        className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg overflow-hidden transition-all duration-300 font-montserrat"
                       >
                         <span className={`absolute inset-0 bg-gradient-to-r from-indigo-500 to-indigo-700 ${isLoading ? 'opacity-70' : 'opacity-90 group-hover:opacity-100'} transition-opacity`}></span>
                         <span className="absolute inset-0 border border-indigo-400 rounded-lg opacity-50 group-hover:opacity-100 transition-opacity"></span>
@@ -581,7 +598,7 @@ export default function CreateEventPage() {
                             </>
                           )}
                         </span>
-            </button>
+                      </button>
                     </div>
                   </div>
                 </div>

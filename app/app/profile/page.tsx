@@ -97,8 +97,8 @@ export default function ProfilePage() {
       <div className="min-h-screen bg-background py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-foreground mb-6">Your Profile</h1>
-            <p className="text-muted-foreground mb-6">Connect your wallet to view your profile</p>
+            <h1 className="text-3xl font-bold text-foreground mb-6 font-calsans">Your Profile</h1>
+            <p className="text-muted-foreground mb-6 font-montserrat">Connect your wallet to view your profile</p>
             <WalletConnectButton />
           </div>
         </div>
@@ -113,30 +113,30 @@ export default function ProfilePage() {
         <div className="bg-card rounded-lg shadow-sm p-6 mb-8 border border-border">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-foreground">
+              <h1 className="text-2xl font-bold text-foreground font-calsans">
                 {loadingProfile ? 'Loading...' : userProfile?.name || 'Anonymous User'}
               </h1>
-              <p className="text-sm text-muted-foreground mt-1">
+              <p className="text-sm text-muted-foreground mt-1 font-montserrat">
                 Wallet: {publicKey.toString().slice(0, 6)}...{publicKey.toString().slice(-4)}
               </p>
               {userProfile?.email && (
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1 font-montserrat">
                   Email: {userProfile.email}
                 </p>
               )}
             </div>
             <div className="flex space-x-4">
               <div className="text-center">
-                <p className="text-2xl font-bold text-indigo-400">
+                <p className="text-2xl font-bold text-indigo-400 font-calsans">
                   {loadingProfile ? '-' : userProfile?.eventCount || 0}
                 </p>
-                <p className="text-xs text-muted-foreground">Events</p>
+                <p className="text-xs text-muted-foreground font-montserrat">Events</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-indigo-400">
+                <p className="text-2xl font-bold text-indigo-400 font-calsans">
                   {nfts.length}
                 </p>
-                <p className="text-xs text-muted-foreground">NFTs</p>
+                <p className="text-xs text-muted-foreground font-montserrat">NFTs</p>
               </div>
             </div>
           </div>
@@ -144,13 +144,13 @@ export default function ProfilePage() {
           <div className="mt-4 flex space-x-3">
             <Link 
               href="/dashboard"
-              className="px-3 py-1.5 border border-border text-sm font-medium rounded-md text-foreground bg-background hover:bg-card"
+              className="px-3 py-1.5 border border-border text-sm font-medium rounded-md text-foreground bg-background hover:bg-card font-montserrat"
             >
               Dashboard
             </Link>
             <Link 
               href="/events"
-              className="px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600"
+              className="px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600 font-montserrat"
             >
               Browse Events
             </Link>
@@ -159,12 +159,12 @@ export default function ProfilePage() {
 
         {/* NFT Collection Section */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-foreground">Your NFT Collection</h1>
+          <h1 className="text-3xl font-bold text-foreground font-calsans">Your NFT Collection</h1>
           
           <button 
             onClick={loadNFTs}
             disabled={loading}
-            className={`mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white ${
+            className={`mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white font-montserrat ${
               loading ? 'bg-indigo-500' : 'bg-indigo-700 hover:bg-indigo-600'
             }`}
           >
@@ -182,28 +182,28 @@ export default function ProfilePage() {
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-400 mx-auto"></div>
-            <p className="mt-4 text-muted-foreground">Loading your NFTs...</p>
+            <p className="mt-4 text-muted-foreground font-montserrat">Loading your NFTs...</p>
           </div>
         ) : error ? (
           <div className="text-center py-12 bg-card rounded-lg shadow-sm border border-border">
-            <h2 className="text-xl font-semibold text-red-400 mb-2">Error</h2>
-            <p className="text-muted-foreground mb-6">{error}</p>
+            <h2 className="text-xl font-semibold text-red-400 mb-2 font-calsans">Error</h2>
+            <p className="text-muted-foreground mb-6 font-montserrat">{error}</p>
             <button 
               onClick={loadNFTs}
-              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600"
+              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600 font-montserrat"
             >
               Try Again
             </button>
           </div>
         ) : nfts.length === 0 ? (
           <div className="text-center py-12 bg-card rounded-lg shadow-sm border border-border">
-            <h2 className="text-xl font-semibold text-foreground mb-2">No NFTs found</h2>
-            <p className="text-muted-foreground mb-6">
+            <h2 className="text-xl font-semibold text-foreground mb-2 font-calsans">No NFTs found</h2>
+            <p className="text-muted-foreground mb-6 font-montserrat">
               Attend events to collect NFT proof of attendance
             </p>
             <Link 
               href="/events"
-              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600"
+              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600 font-montserrat"
             >
               Browse Events
             </Link>
@@ -224,26 +224,26 @@ export default function ProfilePage() {
                       />
                     ) : (
                       <div className="flex items-center justify-center h-full">
-                        <span className="text-muted-foreground">No image</span>
+                        <span className="text-muted-foreground font-montserrat">No image</span>
                       </div>
                     )}
                   </div>
                   <div className="p-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-1 truncate" title={preview.name}>
+                    <h3 className="text-lg font-semibold text-foreground mb-1 truncate font-calsans" title={preview.name}>
                       {preview.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2 h-10" title={preview.description}>
+                    <p className="text-sm text-muted-foreground line-clamp-2 h-10 font-montserrat" title={preview.description}>
                       {preview.description || "No description"}
                     </p>
                     <div className="flex items-center justify-between mt-3">
-                      <p className="text-xs text-muted-foreground truncate">
+                      <p className="text-xs text-muted-foreground truncate font-montserrat">
                         Mint: {nft.mint.slice(0, 6)}...{nft.mint.slice(-4)}
                       </p>
                       <a 
                         href={`https://explorer.solana.com/address/${nft.mint}?cluster=devnet`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group-hover:text-indigo-400 text-indigo-600/80 text-xs flex items-center transition-colors"
+                        className="group-hover:text-indigo-400 text-indigo-600/80 text-xs flex items-center transition-colors font-montserrat"
                       >
                         <span>View on Explorer</span>
                         <svg className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
