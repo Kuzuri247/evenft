@@ -3,17 +3,19 @@ import { prisma } from '@/lib/prisma';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const eventId = await params.id;
+  // In Next.js 14+ we need to await params before using them
+  const params = await context.params;
+  const id = params.id;
 
-  if (!eventId) {
+  if (!id) {
     return NextResponse.json({ error: 'Event ID is required' }, { status: 400 });
   }
 
   try {
     const event = await prisma.event.findUnique({
-      where: { id: eventId },
+      where: { id: id },
       include: {
         creator: {
           select: {

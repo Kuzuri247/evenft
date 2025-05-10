@@ -7,9 +7,11 @@ import { prisma } from '@/lib/prisma';
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { walletAddress: string } }
+  context: { params: { walletAddress: string } }
 ) {
-  const { walletAddress } = params;
+  // In Next.js 14+ we need to await params before using them
+  const params = await context.params;
+  const walletAddress = params.walletAddress;
 
   if (!walletAddress) {
     return NextResponse.json({ error: 'Wallet address is required' }, { status: 400 });

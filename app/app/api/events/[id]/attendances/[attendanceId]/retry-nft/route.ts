@@ -12,10 +12,12 @@ import { getMinterKeypair } from '@/lib/solana/walletConfig';
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string, attendanceId: string } }
+  context: { params: { id: string, attendanceId: string } }
 ) {
-  // Use destructuring to access params directly
-  const { id: eventId, attendanceId } = params;
+  // In Next.js 14+ we need to await params before using them
+  const params = await context.params;
+  const eventId = params.id;
+  const attendanceId = params.attendanceId;
 
   if (!eventId || !attendanceId) {
     return NextResponse.json({ error: 'Event ID and Attendance ID are required' }, { status: 400 });

@@ -7,9 +7,11 @@ import { prisma } from '@/lib/prisma';
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { mintAddress: string } }
+  context: { params: { mintAddress: string } }
 ) {
-  const { mintAddress } = params;
+  // In Next.js 14+ we need to await params before using them
+  const params = await context.params;
+  const mintAddress = params.mintAddress;
 
   if (!mintAddress) {
     return NextResponse.json({ error: 'NFT mint address is required' }, { status: 400 });

@@ -10,12 +10,47 @@ import * as anchor from '@coral-xyz/anchor';
 import { createAttendanceNFT } from '@/lib/solana/nftHelpers';
 import { getMinterKeypair } from '@/lib/solana/walletConfig';
 
+// Fetch all attendances for an event
+export async function GET(
+  request: NextRequest,
+  context: { params: { id: string } }
+) {
+  // In Next.js 14+ we need to await params before using them
+  const params = await context.params;
+  const eventId = params.id;
+  
+  if (!eventId) {
+    return NextResponse.json({ error: 'Event ID is required' }, { status: 400 });
+  }
+  
+  try {
+    const attendances = await prisma.attendance.findMany({
+      where: { eventId },
+      include: {
+        user: {
+          select: {
+            id: true,
+            name: true,
+            walletAddress: true,
+          }
+        }
+      }
+    });
+    
+    return NextResponse.json(attendances);
+  } catch (error) {
+    console.error('Error fetching attendances:', error);
+    return NextResponse.json({ error: 'Failed to fetch attendances' }, { status: 500 });
+  }
+}
+
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  // Use destructuring to access id directly
-  const { id: eventId } = params;
+  // In Next.js 14+ we need to await params before using them
+  const params = await context.params;
+  const eventId = params.id;
 
   if (!eventId) {
     return NextResponse.json({ error: 'Event ID is required' }, { status: 400 });

@@ -3,18 +3,20 @@ import { prisma } from '@/lib/prisma';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const eventId = await params.id;
+  // In Next.js 14+ we need to await params before using them
+  const params = await context.params;
+  const id = params.id;
 
-  if (!eventId) {
+  if (!id) {
     return NextResponse.json({ error: 'Event ID is required' }, { status: 400 });
   }
 
   try {
     // Get all registrations for this event
     const registrations = await prisma.registration.findMany({
-      where: { eventId },
+      where: { eventId: id },
       include: {
         user: {
           select: {
@@ -29,7 +31,7 @@ export async function GET(
 
     // Get all attendances for this event
     const attendances = await prisma.attendance.findMany({
-      where: { eventId },
+      where: { eventId: id },
     });
 
     // Map attendances to registrations by userId
