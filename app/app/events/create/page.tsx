@@ -198,7 +198,7 @@ export default function CreateEventPage() {
         <div className="absolute bottom-1/3 left-20 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 inline-block font-calsans">Create Your Event</h1>
+          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 inline-block font-calsans tracking-wider">Create Your Event</h1>
           <p className="mt-4 text-lg text-indigo-100 max-w-3xl mx-auto font-montserrat">
             Build your blockchain-verified event and mint exclusive NFTs for your attendees
           </p>

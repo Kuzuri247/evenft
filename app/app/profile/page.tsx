@@ -110,7 +110,7 @@ export default function ProfilePage() {
     <div className="min-h-screen bg-background py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* User Profile Section */}
-        <div className="bg-card rounded-lg shadow-sm p-6 mb-8 border border-border">
+        <div className="bg-card rounded-lg shadow-sm p-6 mb-8 border border-border mt-12">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-foreground font-calsans">

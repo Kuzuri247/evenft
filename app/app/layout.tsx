@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <SolanaProvider>
           <Navigation />
-          <main className="pt-24">{children}</main>
+          <main className="scroll-smooth">{children}</main>
         </SolanaProvider>
       </body>
     </html>

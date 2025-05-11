@@ -313,7 +313,7 @@ export default function AttendeeManagementPage() {
   return (
     <div className="min-h-screen bg-background overflow-hidden pb-20">
       {/* Header with animated background */}
-      <div className="relative py-16 mb-8">
+      <div className="relative py-16 mb-8 mt-24">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-violet-900 to-purple-950 opacity-90">
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>

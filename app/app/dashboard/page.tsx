@@ -111,7 +111,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-background overflow-hidden pb-20">
       {/* Header with animated background */}
-      <div className="relative py-16 mb-8">
+      <div className="relative py-16 mb-8 mt-24">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-violet-900 to-purple-950 opacity-90">
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
@@ -123,7 +123,7 @@ export default function Dashboard() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 mb-4 sm:mb-0 font-calsans">Your Dashboard</h1>
+            <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 mb-4 sm:mb-0 font-calsans tracking-wider">Your Dashboard</h1>
             
             <div className="flex space-x-2">
               <Link

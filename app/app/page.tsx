@@ -48,7 +48,7 @@ export default function Home() {
             <div className="space-y-8 max-w-4xl">
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-30 blur-xl rounded-lg"></div>
-                <h1 className="relative text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 leading-tight font-calsans">
+                <h1 className="relative text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 leading-tight font-calsans tracking-wider">
                   Blockchain-Verified Event Ticketing
                 </h1>
               </div>
@@ -107,11 +107,11 @@ export default function Home() {
                 Built on Solana
               </div>
               <div className="bg-background/30 backdrop-blur-md px-4 py-2 rounded-full border border-indigo-500/20 text-indigo-200 text-sm flex items-center shadow-lg shadow-indigo-900/10 font-montserrat">
-                <span className="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
+                <span className="w-2 h-2 bg-[#007BFF] rounded-full mr-2"></span>
                 NFT Proof of Attendance
               </div>
               <div className="bg-background/30 backdrop-blur-md px-4 py-2 rounded-full border border-indigo-500/20 text-indigo-200 text-sm flex items-center shadow-lg shadow-indigo-900/10 font-montserrat">
-                <span className="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                <span className="w-2 h-2 bg-[#E114E5] rounded-full mr-2"></span>
                 Low Transaction Fees
               </div>
             </div>
@@ -119,17 +119,17 @@ export default function Home() {
         </div>
         
         {/* Improved down arrow with pulsating effect */}
-        <a 
-          href="#features" 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 hover:text-white transition-colors"
-          style={{ opacity: 1 - (scrollY * 0.01) }}
-        >
-          <div className="p-2 rounded-full bg-indigo-600/20 backdrop-blur-sm border border-indigo-500/20 animate-pulse">
-            <svg className="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a 
+            href="#features" 
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 hover:text-white transition-colors"
+            style={{ opacity: 1 - (scrollY * 0.01), transition: 'opacity 0.8s ease, transform 0.8s ease' }}
+            >
+            <div className="p-2 rounded-full bg-indigo-600/20 backdrop-blur-sm border border-indigo-500/20 animate-pulse">
+              <svg className="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
-        </a>
+              </svg>
+            </div>
+            </a>
       </section>
 
       {/* Enhanced Features Section */}
@@ -143,15 +143,15 @@ export default function Home() {
           <div className="text-center mb-20">
             <div className="inline-block relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-30 blur-xl rounded-lg"></div>
-              <h2 className="relative text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400 inline-block font-calsans">Why EventSeal?</h2>
+              <h2 className="relative text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#007BFF] to-[#E114E5] inline-block font-calsans tracking-wider">Why EventSeal?</h2>
             </div>
-            <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+            <div className="w-36 h-1 bg-gradient-to-r from-[#007BFF] to-[#E114E5] mx-auto mt-2 rounded-full"></div>
             <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto font-montserrat">Taking event ticketing to the next level with blockchain technology</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Feature 1 - enhanced */}
-            <div className="group relative bg-background/40 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-indigo-900/30 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-indigo-900/10 overflow-hidden">
+            <div className="group relative bg-background/40 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-indigo-900/30 transform transition-all duration-500 ease-initial hover:-translate-y-2 hover:shadow-indigo-900/10 overflow-hidden mask-b-from-50% hover:mask-none">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-indigo-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               <div className="relative">
@@ -167,7 +167,7 @@ export default function Home() {
             </div>
 
             {/* Feature 2 - enhanced */}
-            <div className="group relative bg-background/40 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-indigo-900/30 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-indigo-900/10 overflow-hidden">
+            <div className="group relative bg-background/40 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-indigo-900/30 transform transition-all duration-500 ease-initial hover:-translate-y-2 hover:shadow-indigo-900/10 overflow-hidden mask-b-from-50% hover:mask-none">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-purple-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-purple-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               <div className="relative">
@@ -183,7 +183,7 @@ export default function Home() {
             </div>
 
             {/* Feature 3 - enhanced */}
-            <div className="group relative bg-background/40 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-indigo-900/30 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-indigo-900/10 overflow-hidden">
+            <div className="group relative bg-background/40 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-indigo-900/30 transform transition-all duration-500 ease-initial hover:-translate-y-2 hover:shadow-indigo-900/10 overflow-hidden mask-b-from-50% hover:mask-none">
               <div className="absolute inset-0 bg-gradient-to-br from-violet-600/5 to-violet-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-violet-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               <div className="relative">
@@ -222,8 +222,8 @@ export default function Home() {
             
             <div className="relative px-8 py-16 md:py-20 md:px-16 text-center md:text-left flex flex-col md:flex-row items-center z-10">
               <div className="md:w-2/3 mb-10 md:mb-0">
-                <h2 className="text-3xl md:text-4xl font-extrabold text-white sm:text-4xl leading-tight font-calsans">
-                  Ready to revolutionize your <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 to-purple-300">events</span>?
+                <h2 className="text-3xl md:text-4xl font-extrabold text-white sm:text-4xl leading-tight font-calsans tracking-wider">
+                  Ready to revolutionize your <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#007BFF] to-[#E114E5]">events</span>?
                 </h2>
                 <p className="mt-6 text-lg text-indigo-200 max-w-2xl font-montserrat">
                   Create your first event or browse upcoming events on the platform. Join the future of event ticketing today.
@@ -239,7 +239,7 @@ export default function Home() {
                   ].map((feature, i) => (
                     <div key={i} className="flex items-center">
                       <div className="flex-shrink-0 h-5 w-5 bg-indigo-500/20 rounded-full flex items-center justify-center mr-2">
-                        <svg className="h-3 w-3 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="h-3 w-3 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
