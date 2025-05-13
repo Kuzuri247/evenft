@@ -47,7 +47,7 @@ export default function Home() {
           <div className="flex flex-col items-center text-center">
             <div className="space-y-8 max-w-4xl">
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-30 blur-xl rounded-lg"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#007BFF] to-[#E114E5] opacity-30 blur-xl rounded-lg"></div>
                 <h1 className="relative text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 leading-tight font-calsans tracking-wider">
                   Blockchain-Verified Event Ticketing
                 </h1>

@@ -185,7 +185,7 @@ export default function CreateEventPage() {
   };
   
   return (
-    <div className="min-h-screen bg-background overflow-hidden pb-20">
+    <div className="min-h-screen bg-background overflow-hidden pb-20 py-24">
       {/* Header with animated background */}
       <div className="relative py-16 mb-8">
         {/* Animated gradient background */}

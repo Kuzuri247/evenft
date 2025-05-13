@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SolanaProvider } from "@/components/provider/SolanaProvider";
 import Navigation from "@/components/Navigation";
-import "@solana/wallet-adapter-react-ui/styles.css"
+import "@solana/wallet-adapter-react-ui/styles.css";
+import { Providers } from "./provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "EventSeal - Blockchain Event Tickets",
-  description: "Create and manage events with blockchain-verified attendance and NFT tickets",
+  description:
+    "Create and manage events with blockchain-verified attendance and NFT tickets",
 };
 
 export default function RootLayout({
@@ -26,13 +28,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         <SolanaProvider>
-          <Navigation />
-          <main className="scroll-smooth">{children}</main>
+          <Providers>
+            <Navigation />
+            <main className="scroll-smooth">{children}</main>
+          </Providers>
         </SolanaProvider>
       </body>
     </html>
