@@ -35,10 +35,10 @@ export default function Navigation() {
         transition-all duration-300 ease-in-out w-full max-w-5xl
         ${
           scrolled
-            ? "bg-card/80 backdrop-blur-lg shadow-[0_0_15px_rgba(76,29,149,0.15)]"
-            : "bg-background/40"
+            ? "dark:bg-card/80 backdrop-blur-lg shadow-[0_0_15px_rgba(76,29,149,0.15)]"
+            : "dark:bg-background/40 bg-"
         }
-        my-3 mx-3 rounded-xl border border-zinc-200/20
+        my-3 mx-3 rounded-xl border border-zinc-200/20 
       `}
       >
         <div className="px-4 sm:px-6">
@@ -58,8 +58,8 @@ export default function Navigation() {
                   className={`relative inline-flex items-center px-3 py-1.5 text-sm font-medium transition-all duration-200 font-montserrat
                   ${
                     pathname === "/events" || pathname.startsWith("/events/")
-                      ? "text-white"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "dark:text-white light:text-black"
+                      : "dark:text-muted-foreground hover:text-foreground light:text-black"
                   }`}
                 >
                   {(pathname === "/events" ||
@@ -76,8 +76,8 @@ export default function Navigation() {
                       ${
                         pathname === "/dashboard" ||
                         pathname.startsWith("/dashboard/")
-                          ? "text-white"
-                          : "text-muted-foreground hover:text-foreground"
+                          ? "dark:text-white light:text-black"
+                          : "dark:text-muted-foreground hover:text-foreground light:text-black"
                       }`}
                     >
                       {(pathname === "/dashboard" ||
@@ -92,8 +92,8 @@ export default function Navigation() {
                       ${
                         pathname === "/profile" ||
                         pathname.startsWith("/profile/")
-                          ? "text-white"
-                          : "text-muted-foreground hover:text-foreground"
+                          ? "dark:text-white light:text-black"
+                          : "dark:text-muted-foreground hover:text-foreground light:text-black"
                       }`}
                     >
                       {(pathname === "/profile" ||
@@ -107,7 +107,7 @@ export default function Navigation() {
               </div>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:items-center">
-              <div className="flex pr-4">
+              <div className="flex pr-5">
                 <ThemeSwitch />
               </div>
               <div className="p-1 rounded-lg backdrop-blur-sm transition-all duration-200  hover:bg-indigo-500/10">
@@ -117,7 +117,9 @@ export default function Navigation() {
 
             {/* Mobile menu button */}
             <div className="flex items-center sm:hidden">
+              <div className="p-2">
               <ThemeSwitch />
+              </div>
               <div className="ml-3">
                 <WalletConnectButton />
               </div>

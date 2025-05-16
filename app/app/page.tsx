@@ -87,7 +87,7 @@ export default function Home() {
                   </>
                 ) : (
                   <div className="relative backdrop-blur-lg bg-indigo-500/10 border border-indigo-400/30 rounded-2xl p-8 max-w-sm mx-auto shadow-xl shadow-indigo-900/20">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-20 blur-lg rounded-2xl"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r bg-background/40 opacity-20 blur-lg rounded-2xl"></div>
                     <div className="relative flex flex-col space-y-6 items-center">
                       <div className="text-indigo-100 text-xl font-medium font-montserrat">Connect to get started</div>
                       <div className="transform transition-transform hover:scale-105">
@@ -282,7 +282,6 @@ export default function Home() {
                   <div className="relative backdrop-blur-md bg-white/5 border border-white/20 rounded-xl p-8 shadow-2xl shadow-indigo-900/20">
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-20 blur-md rounded-xl"></div>
                     <div className="relative flex flex-col items-center space-y-4">
-                      <div className="text-indigo-100 font-medium mb-2 font-montserrat">Connect Wallet</div>
                       <div className="transform transition-transform hover:scale-105">
                         <WalletConnectButton />
                       </div>
