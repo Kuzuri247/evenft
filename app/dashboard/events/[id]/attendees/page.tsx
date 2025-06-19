@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useWallet } from '@solana/wallet-adapter-react';
-import Link from 'next/link';
+import { Link } from "next-view-transitions";
 import { format } from 'date-fns';
 import WalletConnectButton from '@/components/WalletConnectButton';
 
@@ -365,16 +365,16 @@ export default function AttendeeManagementPage() {
               <table className="w-full divide-y divide-indigo-900/20">
                 <thead className="bg-indigo-900/20">
                   <tr>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase tracking-wider">
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase  ">
                       User
                     </th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase tracking-wider">
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase  ">
                       Registered On
                     </th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase tracking-wider">
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase  ">
                       Status
                     </th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase tracking-wider">
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase  ">
                       Action
                     </th>
                   </tr>

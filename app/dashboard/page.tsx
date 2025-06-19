@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useWallet } from '@solana/wallet-adapter-react';
-import Link from 'next/link';
+import { Link } from "next-view-transitions";
 import Image from 'next/image';
 import WalletConnectButton from '@/components/WalletConnectButton';
 import { format } from 'date-fns';
@@ -55,7 +55,7 @@ export default function Dashboard() {
 
   if (!publicKey) {
     return (
-      <div className="min-h-screen bg-background overflow-hidden">
+      <div className="min-h-screen py-24 bg-background overflow-hidden">
         {/* Header with animated background */}
         <div className="relative py-20">
           {/* Animated gradient background */}
@@ -68,8 +68,8 @@ export default function Dashboard() {
           <div className="absolute bottom-1/3 right-10 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
           
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 inline-block font-calsans">Dashboard</h1>
-            <p className="mt-4 text-xl text-indigo-100 font-montserrat">Connect your wallet to manage your events</p>
+            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 inline-block  ">Dashboard</h1>
+            <p className="mt-4 text-xl text-indigo-100  ">Connect your wallet to manage your events</p>
           </div>
         </div>
         
@@ -81,7 +81,7 @@ export default function Dashboard() {
               <svg className="h-24 w-24 text-indigo-400/40 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
-              <p className="text-xl text-foreground font-medium mb-6 font-montserrat">Connect your wallet to access your dashboard</p>
+              <p className="text-xl text-foreground font-medium mb-6  ">Connect your wallet to access your dashboard</p>
               <div className="inline-block">
                 <WalletConnectButton />
               </div>
@@ -101,7 +101,7 @@ export default function Dashboard() {
               <div className="absolute -inset-1 bg-indigo-600 rounded-full opacity-30 blur-xl animate-pulse"></div>
               <div className="relative animate-spin rounded-full h-16 w-16 border-4 border-t-indigo-400 border-l-indigo-400 border-r-transparent border-b-transparent"></div>
             </div>
-            <p className="mt-8 text-lg text-muted-foreground font-montserrat">Loading your events...</p>
+            <p className="mt-8 text-lg text-muted-foreground  ">Loading your events...</p>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-background overflow-hidden pb-20">
       {/* Header with animated background */}
-      <div className="relative py-16 mb-8 mt-24">
+      <div className="relative py-12 mb-8 mt-24">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-violet-900 to-purple-950 opacity-90">
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
@@ -123,12 +123,12 @@ export default function Dashboard() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 mb-4 sm:mb-0 font-calsans tracking-wider">Your Dashboard</h1>
+            <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 mb-4 sm:mb-0    ">Your Dashboard</h1>
             
             <div className="flex space-x-2">
               <Link
                 href="/events/create"
-                className="group relative inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg overflow-hidden transition-all duration-300 font-montserrat"
+                className="group relative inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg overflow-hidden transition-all duration-300  "
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-indigo-700 opacity-90 group-hover:opacity-100 transition-opacity"></span>
                 <span className="absolute inset-0 border border-indigo-400 rounded-lg opacity-50 group-hover:opacity-100 transition-opacity"></span>
@@ -147,7 +147,7 @@ export default function Dashboard() {
             <div className="inline-flex p-1 bg-background/40 backdrop-blur-sm rounded-lg border border-indigo-900/30">
               <button
                 onClick={() => setActiveTab('created')}
-                className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 font-montserrat ${
+                className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200   ${
                   activeTab === 'created'
                     ? 'bg-indigo-600/80 backdrop-blur-sm text-white shadow-lg shadow-indigo-600/20'
                     : 'text-indigo-200 hover:bg-indigo-600/20'
@@ -157,7 +157,7 @@ export default function Dashboard() {
               </button>
               <button
                 onClick={() => setActiveTab('attending')}
-                className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 font-montserrat ${
+                className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200   ${
                   activeTab === 'attending'
                     ? 'bg-indigo-600/80 backdrop-blur-sm text-white shadow-lg shadow-indigo-600/20'
                     : 'text-indigo-200 hover:bg-indigo-600/20'
@@ -178,12 +178,12 @@ export default function Dashboard() {
             <svg className="h-24 w-24 text-indigo-400/40 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1M15 7l3 3m0 0l3-3m-3 3V4" />
             </svg>
-            <h2 className="text-xl text-foreground font-medium mb-3 font-calsans">No events created yet</h2>
-            <p className="text-muted-foreground mb-8 font-montserrat">Create your first event to start managing attendees and issuing NFTs</p>
+            <h2 className="text-xl text-foreground font-medium mb-3  ">No events created yet</h2>
+            <p className="text-muted-foreground mb-8  ">Create your first event to start managing attendees and issuing NFTs</p>
             
             <Link 
               href="/events/create" 
-              className="group relative inline-flex justify-center items-center px-8 py-4 text-base font-medium rounded-lg overflow-hidden transition-all duration-300 font-montserrat"
+              className="group relative inline-flex justify-center items-center px-8 py-4 text-base font-medium rounded-lg overflow-hidden transition-all duration-300  "
             >
               <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-indigo-700 opacity-90 group-hover:opacity-100 transition-opacity"></span>
               <span className="absolute inset-0 border border-indigo-400 rounded-lg opacity-50 group-hover:opacity-100 transition-opacity"></span>
@@ -223,15 +223,15 @@ export default function Dashboard() {
                   )}
                   
                   <div className="absolute top-4 right-4 z-20">
-                    <span className="px-3 py-1 text-xs rounded-full bg-indigo-600/80 backdrop-blur-sm text-white font-montserrat">
+                    <span className="px-3 py-1 text-xs rounded-full bg-indigo-600/80 backdrop-blur-sm text-white  ">
                       {new Date(event.date) > new Date() ? 'Upcoming' : 'Past'}
                     </span>
                   </div>
                 </div>
                 
                 <div className="p-6 relative z-10">
-                  <h2 className="text-xl font-semibold text-foreground mb-2 group-hover:text-indigo-300 transition-colors font-calsans">{event.title}</h2>
-                  <p className="text-muted-foreground mb-6 line-clamp-2 font-montserrat">{event.description}</p>
+                  <h2 className="text-xl font-semibold text-foreground mb-2 group-hover:text-indigo-300 transition-colors  ">{event.title}</h2>
+                  <p className="text-muted-foreground mb-6 line-clamp-2  ">{event.description}</p>
                   
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center text-muted-foreground group-hover:text-indigo-300/80 transition-colors">
@@ -240,7 +240,7 @@ export default function Dashboard() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                       </div>
-                      <span className="text-sm font-montserrat">{format(new Date(event.date), 'PPP p')}</span>
+                      <span className="text-sm  ">{format(new Date(event.date), 'PPP p')}</span>
                     </div>
                     
                     {event.location && (
@@ -251,7 +251,7 @@ export default function Dashboard() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                           </svg>
                         </div>
-                        <span className="text-sm font-montserrat">{event.location}</span>
+                        <span className="text-sm  ">{event.location}</span>
                       </div>
                     )}
                     
@@ -261,14 +261,14 @@ export default function Dashboard() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                       </div>
-                      <span className="text-sm font-montserrat">{event.registrations?.length || 0} registrations</span>
+                      <span className="text-sm  ">{event.registrations?.length || 0} registrations</span>
                     </div>
                   </div>
                   
                   <div className="flex space-x-3">
                     <Link 
                       href={`/events/${event.id}`}
-                      className="group/btn relative inline-flex flex-1 justify-center items-center px-4 py-2.5 text-sm font-medium rounded-lg overflow-hidden transition-all duration-300 font-montserrat"
+                      className="group/btn relative inline-flex flex-1 justify-center items-center px-4 py-2.5 text-sm font-medium rounded-lg overflow-hidden transition-all duration-300  "
                     >
                       <span className="absolute inset-0 bg-background/60 opacity-90 group-hover/btn:opacity-100 transition-opacity"></span>
                       <span className="absolute inset-0 border border-indigo-400/30 rounded-lg"></span>
@@ -283,7 +283,7 @@ export default function Dashboard() {
                     
                     <Link 
                       href={`/dashboard/events/${event.id}/attendees`}
-                      className="group/btn relative inline-flex flex-1 justify-center items-center px-4 py-2.5 text-sm font-medium rounded-lg overflow-hidden transition-all duration-300 font-montserrat"
+                      className="group/btn relative inline-flex flex-1 justify-center items-center px-4 py-2.5 text-sm font-medium rounded-lg overflow-hidden transition-all duration-300  "
                     >
                       <span className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-indigo-700 opacity-90 group-hover/btn:opacity-100 transition-opacity"></span>
                       <span className="absolute inset-0 border border-indigo-400/30 rounded-lg"></span>

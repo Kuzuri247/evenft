@@ -65,7 +65,7 @@ export default function EventDetailsClient({ event, formattedDate, registrations
         {/* Event title overlay */}
         <div className="absolute bottom-0 left-0 right-0 z-20 p-8">
           <div className="max-w-5xl mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 leading-tight font-calsans">
+            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-violet-200 leading-tight  ">
               {event.title}
             </h1>
           </div>
@@ -89,8 +89,8 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                       </svg>
                     </div>
                     <div>
-                      <div className="text-sm text-indigo-200/70 font-montserrat">Date & Time</div>
-                      <div className="font-medium font-montserrat">{formattedDate}</div>
+                      <div className="text-sm text-indigo-200/70  ">Date & Time</div>
+                      <div className="font-medium  ">{formattedDate}</div>
                     </div>
                   </div>
                   
@@ -103,8 +103,8 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                         </svg>
                       </div>
                       <div>
-                        <div className="text-sm text-indigo-200/70 font-montserrat">Location</div>
-                        <div className="font-medium font-montserrat">{event.location}</div>
+                        <div className="text-sm text-indigo-200/70  ">Location</div>
+                        <div className="font-medium  ">{event.location}</div>
                       </div>
                     </div>
                   )}
@@ -116,23 +116,23 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                       </svg>
                     </div>
                     <div>
-                      <div className="text-sm text-indigo-200/70 font-montserrat">Hosted by</div>
-                      <div className="font-medium font-montserrat">{event.creator.name || `User ${event.creator.walletAddress.slice(0, 6)}...`}</div>
+                      <div className="text-sm text-indigo-200/70  ">Hosted by</div>
+                      <div className="font-medium  ">{event.creator.name || `User ${event.creator.walletAddress.slice(0, 6)}...`}</div>
                     </div>
                   </div>
                 </div>
                 
                 {event.description && (
                   <div className="mb-8">
-                    <h2 className="text-xl font-semibold mb-4 text-foreground font-calsans">About this event</h2>
+                    <h2 className="text-xl font-semibold mb-4 text-foreground  ">About this event</h2>
                     <div className="prose prose-indigo prose-invert max-w-none">
-                      <p className="text-muted-foreground whitespace-pre-line font-montserrat">{event.description}</p>
+                      <p className="text-muted-foreground whitespace-pre-line  ">{event.description}</p>
                     </div>
                   </div>
                 )}
                 
                 <div className="mt-8">
-                  <h2 className="text-xl font-semibold mb-4 text-foreground font-calsans">What you'll get</h2>
+                  <h2 className="text-xl font-semibold mb-4 text-foreground  ">What you'll get</h2>
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <div className="h-6 w-6 rounded-full bg-indigo-900/40 backdrop-blur-sm flex items-center justify-center mr-3 mt-0.5">
@@ -140,7 +140,7 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-muted-foreground font-montserrat">Access to the event and all its activities</span>
+                      <span className="text-muted-foreground  ">Access to the event and all its activities</span>
                     </li>
                     <li className="flex items-start">
                       <div className="h-6 w-6 rounded-full bg-indigo-900/40 backdrop-blur-sm flex items-center justify-center mr-3 mt-0.5">
@@ -148,7 +148,7 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-muted-foreground font-montserrat">Blockchain verification of your attendance</span>
+                      <span className="text-muted-foreground  ">Blockchain verification of your attendance</span>
                     </li>
                     <li className="flex items-start">
                       <div className="h-6 w-6 rounded-full bg-indigo-900/40 backdrop-blur-sm flex items-center justify-center mr-3 mt-0.5">
@@ -156,7 +156,7 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-muted-foreground font-montserrat">Exclusive collectible NFT as proof of attendance</span>
+                      <span className="text-muted-foreground  ">Exclusive collectible NFT as proof of attendance</span>
                     </li>
                   </ul>
                 </div>
@@ -174,8 +174,8 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                 {/* Registration stats */}
                 <div className="mb-6">
                   <div className="flex justify-between items-center mb-2">
-                    <div className="text-sm text-indigo-200/70 font-montserrat">Spots remaining</div>
-                    <div className="text-sm font-medium text-indigo-200 font-montserrat">{maxAttendees - registrationsCount} of {maxAttendees}</div>
+                    <div className="text-sm text-indigo-200/70  ">Spots remaining</div>
+                    <div className="text-sm font-medium text-indigo-200  ">{maxAttendees - registrationsCount} of {maxAttendees}</div>
                   </div>
                   
                   <div className="w-full h-2 bg-indigo-950 rounded-full overflow-hidden">
@@ -185,7 +185,7 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                     ></div>
                   </div>
                   
-                  <div className="flex items-center mt-4 text-indigo-300 font-montserrat">
+                  <div className="flex items-center mt-4 text-indigo-300  ">
                     <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
@@ -195,7 +195,7 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                 
                 {/* NFT Preview */}
                 <div className="mb-6">
-                  <h3 className="text-lg font-semibold mb-3 text-foreground font-calsans">NFT Reward</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-foreground  ">NFT Reward</h3>
                   <div className="flex space-x-4 items-center">
                     {event.nftImageUrl ? (
                       <div className="relative h-20 w-20 rounded-lg overflow-hidden border border-indigo-500/20">
@@ -215,8 +215,8 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                       </div>
                     )}
                     <div>
-                      <div className="font-medium text-foreground font-montserrat">{event.nftName}</div>
-                      <div className="text-sm text-muted-foreground font-montserrat">Symbol: {event.nftSymbol}</div>
+                      <div className="font-medium text-foreground  ">{event.nftName}</div>
+                      <div className="text-sm text-muted-foreground  ">Symbol: {event.nftSymbol}</div>
                     </div>
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                 </div>
                 
                 {/* Information note */}
-                <div className="mt-6 text-xs text-indigo-300/70 bg-indigo-950/30 rounded-lg p-3 border border-indigo-500/10 font-montserrat">
+                <div className="mt-6 text-xs text-indigo-300/70 bg-indigo-950/30 rounded-lg p-3 border border-indigo-500/10  ">
                   <p>By registering, you'll be able to claim your NFT at the event using the same wallet.</p>
                 </div>
               </div>
@@ -238,7 +238,7 @@ export default function EventDetailsClient({ event, formattedDate, registrations
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-2xl"></div>
               
               <div className="relative">
-                <h3 className="text-lg font-semibold mb-4 text-foreground font-calsans">About the host</h3>
+                <h3 className="text-lg font-semibold mb-4 text-foreground  ">About the host</h3>
                 <div className="flex items-center mb-4">
                   <div className="h-12 w-12 rounded-full bg-indigo-700/30 flex items-center justify-center mr-4">
                     <svg className="h-6 w-6 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -246,11 +246,11 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                     </svg>
                   </div>
                   <div>
-                    <div className="font-medium text-foreground font-montserrat">{event.creator.name || `User ${event.creator.walletAddress.slice(0, 6)}...`}</div>
-                    <div className="text-xs text-muted-foreground font-montserrat">{`${event.creator.walletAddress.slice(0, 6)}...${event.creator.walletAddress.slice(-4)}`}</div>
+                    <div className="font-medium text-foreground  ">{event.creator.name || `User ${event.creator.walletAddress.slice(0, 6)}...`}</div>
+                    <div className="text-xs text-muted-foreground  ">{`${event.creator.walletAddress.slice(0, 6)}...${event.creator.walletAddress.slice(-4)}`}</div>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground font-montserrat">Event organizer on EventSeal</p>
+                <p className="text-sm text-muted-foreground  ">Event organizer on EventSeal</p>
               </div>
             </div>
           </div>
