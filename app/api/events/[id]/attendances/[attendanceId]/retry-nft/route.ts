@@ -1,29 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { 
-  PublicKey, 
-  Connection, 
-  clusterApiUrl, 
-  Keypair 
+import {
+  PublicKey,
+  Connection,
+  clusterApiUrl,
 } from '@solana/web3.js';
 import * as anchor from '@coral-xyz/anchor';
 import { createAttendanceNFT } from '@/lib/solana/nftHelpers';
 import { getMinterKeypair } from '@/lib/solana/walletConfig';
 
-// Define the proper context parameter type
-type RetryNFTContext = {
-  params: {
-    id: string;
-    attendanceId: string;
-  }
-};
-
 export async function POST(
   request: NextRequest,
-  context: RetryNFTContext
+  { params }: { params: { id: string; attendanceId: string } }
 ) {
-  // In Next.js 14+ we need to await params before using them
-  const params = await context.params;
   const eventId = params.id;
   const attendanceId = params.attendanceId;
 
@@ -122,7 +111,7 @@ export async function POST(
 
         // The attendee's wallet where the NFT will be minted to
         const receiverWallet = new PublicKey(attendance.user.walletAddress);
-        
+
         // Format date for display
         const eventDate = new Date(attendance.event.date);
         const formattedDate = eventDate.toLocaleDateString('en-US', {
@@ -155,7 +144,7 @@ export async function POST(
 
         nftMintAddress = nftResult.mintAddress;
         nftTransactionSignature = nftResult.txSignature;
-        
+
         console.log('NFT minted successfully (retry)!');
         console.log('Mint address:', nftMintAddress);
         console.log('Transaction signature:', nftTransactionSignature);
