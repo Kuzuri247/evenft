@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import { useWallet, useConnection } from "@solana/wallet-adapter-react";
 import { Link } from "next-view-transitions";
-import Image from "next/image";
 import { fetchUserNFTs, NFTData, getNFTPreview } from "@/lib/solana/nftUtils";
-import WalletConnectButton from "@/components/WalletConnectButton";
 import { Connection, clusterApiUrl } from "@solana/web3.js";
+import { ProfileSkeleton, NFTSkeleton } from "@/components/Skeletons";
+import WalletConnectButton from "@/components/WalletConnectButton";
+import Image from "next/image";
 
 interface UserProfile {
   id: string;
@@ -16,48 +17,6 @@ interface UserProfile {
   eventCount: number;
   nftCount: number;
 }
-
-// Skeleton Components
-const ProfileSkeleton = () => (
-  <div className="bg-card rounded-lg shadow-sm p-6 mb-8 border border-border mt-12 animate-pulse">
-    <div className="flex items-center justify-between">
-      <div>
-        <div className="h-8 bg-muted rounded w-48 mb-2"></div>
-        <div className="h-4 bg-muted rounded w-32 mb-1"></div>
-        <div className="h-4 bg-muted rounded w-40"></div>
-      </div>
-      <div className="flex space-x-4">
-        <div className="text-center">
-          <div className="h-8 bg-muted rounded w-8 mx-auto mb-1"></div>
-          <div className="h-3 bg-muted rounded w-12"></div>
-        </div>
-        <div className="text-center">
-          <div className="h-8 bg-muted rounded w-8 mx-auto mb-1"></div>
-          <div className="h-3 bg-muted rounded w-12"></div>
-        </div>
-      </div>
-    </div>
-    <div className="mt-4 flex space-x-3">
-      <div className="h-8 bg-muted rounded w-20"></div>
-      <div className="h-8 bg-muted rounded w-28"></div>
-    </div>
-  </div>
-);
-
-const NFTSkeleton = () => (
-  <div className="bg-card rounded-lg shadow-sm overflow-hidden border border-border animate-pulse">
-    <div className="h-48 w-full bg-muted"></div>
-    <div className="p-4">
-      <div className="h-6 bg-muted rounded w-3/4 mb-2"></div>
-      <div className="h-4 bg-muted rounded w-full mb-1"></div>
-      <div className="h-4 bg-muted rounded w-2/3 mb-3"></div>
-      <div className="flex items-center justify-between">
-        <div className="h-3 bg-muted rounded w-24"></div>
-        <div className="h-3 bg-muted rounded w-20"></div>
-      </div>
-    </div>
-  </div>
-);
 
 export default function ProfilePage() {
   const { publicKey } = useWallet();
@@ -131,7 +90,7 @@ export default function ProfilePage() {
       loadUserProfile();
       loadNFTs();
     }
-  }, [publicKey, connection]);
+  });
 
   // If wallet is not connected
   if (!publicKey) {
@@ -166,7 +125,7 @@ export default function ProfilePage() {
                   {userProfile?.name || "Anonymous User"}
                 </h1>
                 <p className="text-sm text-muted-foreground mt-1  ">
-                  Wallet: {publicKey.toString().slice(0, 6)}...
+                  Wallet: {publicKey.toString().slice(0, 4)}...
                   {publicKey.toString().slice(-4)}
                 </p>
                 {userProfile?.email && (
@@ -230,9 +189,7 @@ export default function ProfilePage() {
           </div>
         ) : error ? (
           <div className="text-center py-12 bg-card rounded-lg shadow-sm border border-border">
-            <h2 className="text-xl font-semibold text-red-400 mb-2  ">
-              Error
-            </h2>
+            <h2 className="text-xl font-semibold text-red-400 mb-2  ">Error</h2>
             <p className="text-muted-foreground mb-6  ">{error}</p>
             <button
               onClick={loadNFTs}

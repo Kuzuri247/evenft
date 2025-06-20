@@ -132,7 +132,7 @@ export default function EventDetailsClient({ event, formattedDate, registrations
                 )}
                 
                 <div className="mt-8">
-                  <h2 className="text-xl font-semibold mb-4 text-foreground  ">What you'll get</h2>
+                  <h2 className="text-xl font-semibold mb-4 text-foreground  ">What you&apos;ll get</h2>
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <div className="h-6 w-6 rounded-full bg-indigo-900/40 backdrop-blur-sm flex items-center justify-center mr-3 mt-0.5">

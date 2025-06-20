@@ -27,9 +27,9 @@ export default function WalletConnectButton() {
         }}
       >
         {publicKey ? (
-          `${publicKey.toBase58().slice(0, 4)}...${publicKey
+          `${publicKey.toBase58().slice(0, 3)}...${publicKey
             .toBase58()
-            .slice(-4)}`
+            .slice(-3)}`
         ) : (
           <>
             Connect <Wallet className="pl-2" />
